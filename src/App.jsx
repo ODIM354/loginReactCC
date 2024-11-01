@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -15,19 +15,26 @@ function App() {
   function cambiarClave(evento) {
     setClave(evento.target.value)
   }
-  function inicioSesion() {
-    if (usuario == 'admin' && clave == 'admin') {
-      alert("Inicio de sesión correcto")
+  async function inicioSesion() {
+    const peticion = await fetch ('http://localhost:3000/login?usuario='+ usuario +'&clave='+ clave, {credentials: 'include'})
+    if (peticion.ok) {
       setLogin(true)
+      console.log("Bienvenido")    
     } else{
-      alert("Usuario o contraseña incorrectos")
+      alert('Usuario o clave incorrectos')
     }
   }
 
-  if (login) {
-    return <homePage/>
-
+  async function validar() {
+    const peticion = await fetch ('http://localhost:3000/validar', {credentials: 'include'})
+    if (peticion.ok) {
+      setLogin(true)
+    }
   }
+
+  useEffect(() => {
+    validar()
+  }, [])
 
   return (
     <>
