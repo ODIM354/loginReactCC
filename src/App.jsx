@@ -12,13 +12,13 @@ function App() {
   function cambiarUsuario(evento) {
     setUsuario(evento.target.value)
   }
+
   function cambiarClave(evento) {
     setClave(evento.target.value)
   }
 
   function recargarAhora() {
     setRecargar(!recargar)
-    
   }
 
   async function inicioSesion() {
@@ -31,7 +31,6 @@ function App() {
     }
   }
 
- 
   async function validar() {
     const peticion = await fetch('http://localhost:3000/validar', { credentials: 'include' })
     if (peticion.ok) {
@@ -49,21 +48,19 @@ function App() {
     <br />
     <Registro recargarAhora={recargarAhora} />
     <Usuarios recargar={recargar}/>
-
     </>)
   }
 
   return (
     <>
-      <h2>Cuentas Claras</h2>
+      <h2>Silvergest</h2>
       <h3>Inicio de Sesión</h3>
       <input placeholder='Usuario' type="text" name="usuario" id="usuario" value={usuario} onChange={cambiarUsuario} />
       <br />
       <input placeholder='Contraseña' type="password" name="clave" id="clave" value={clave} onChange={cambiarClave} />
       <br />
       <br />
-      <button onClick={inicioSesion}>Ingresar</button>
-      <br />
+      <button onClick={inicioSesion}>Ingresar</button>   
     </>
   )
 }

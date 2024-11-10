@@ -25,15 +25,13 @@ function Usuarios({recargar}) {
 
   return (
     <>
-    <h2>Usuarios registrados</h2>
     <br />
-
       <table>
+        <caption><h3>Usuarios registrados</h3></caption>
         <thead>
           <tr>
             <th>Id</th>
             <th>Usuario</th>
-            <th>Contraseña</th>
             <th>Opciones</th>
           </tr>
         </thead>
@@ -43,11 +41,10 @@ function Usuarios({recargar}) {
               <tr key={usuario.id}>
                 <th>{usuario.id}</th>
                 <th>{usuario.usuario}</th>
-                <th>{usuario.clave}</th>
                 <th>
                   <button 
                   onClick={()=>{eliminarUsuario(usuario.id)}}
-                  >X</button>
+                  >Eliminar</button>
                 </th>
               </tr>
             ))
