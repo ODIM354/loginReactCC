@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { FaUser, FaLock } from "react-icons/fa";
 
 function Registro({recargarAhora}) {
   const [usuarioRegistro, setUsuarioRegistro] = useState('')
