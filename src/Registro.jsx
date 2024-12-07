@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { FaUser, FaLock } from "react-icons/fa";
 
 function Registro({recargarAhora}) {
   const [usuarioRegistro, setUsuarioRegistro] = useState('')
@@ -31,7 +30,7 @@ function Registro({recargarAhora}) {
 
   return (
     <>
-      <h3>Registro</h3>
+      <h2>Registro</h2>
       <input placeholder='Usuario' type="text" name="usuario" id="usuario" value={usuarioRegistro} onChange={cambiarUsuarioRegistro} />
       <br />
       <input placeholder='Contraseña' type="password" name="clave" id="clave" value={claveRegistro} onChange={cambiarClaveRegistro} />

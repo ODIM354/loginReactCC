@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { FaUser, FaLock } from "react-icons/fa";
 import Usuarios from './Usuarios'
 import Registro from './Registro'
 import Conversor from './Conversor';
@@ -45,30 +44,34 @@ function Login() {
   }, [])
 
   if (login) {
-    return(
-    <>
-    <br />
-    <Conversor/>
-    <br />
-    <br />
-    <Registro recargarAhora={recargarAhora} />
-    <br />
-    <Usuarios recargar={recargar}/>
-    </>)
+    return (
+      <>
+        <br />
+        <Conversor />
+        <br />
+        <Registro recargarAhora={recargarAhora}/>
+        <br />
+        <Usuarios recargar={recargar} />
+       
+      </>)
   }
 
   return (
     <>
-      <h2>Silvergest</h2>
-      <h3>Inicio de Sesión</h3>
-      <input placeholder='Usuario' type="text" name="usuario" id="usuario" value={usuario} onChange={cambiarUsuario} />
-      <br />
-      <input placeholder='Contraseña' type="password" name="clave" id="clave" value={clave} onChange={cambiarClave} />
-      <br />
-      <br />
-      <button onClick={inicioSesion}>Ingresar</button>
-      <br />
-      <br />
+      <div className="login-container">
+        <div className="login-box">
+
+          <img src="/Logo.png" alt="Logo de la página" className="logo" />
+          <h2>Inicio de Sesión</h2>
+          <input placeholder='Usuario' type="text" name="usuario" id="usuario" value={usuario} onChange={cambiarUsuario} />
+          <br />
+          <input placeholder='Contraseña' type="password" name="clave" id="clave" value={clave} onChange={cambiarClave} />
+          <br />
+          <br />
+          <button onClick={inicioSesion}>Ingresar</button>
+
+        </div>
+      </div>
     </>
   )
 }

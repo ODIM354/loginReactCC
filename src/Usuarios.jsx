@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-function Usuarios({recargar}) {
+function Usuarios({ recargar }) {
   const [usuarios, setUsuarios] = useState([])
 
   async function obtenerUsuarios() {
@@ -13,7 +13,7 @@ function Usuarios({recargar}) {
   }
 
   async function eliminarUsuario(id) {
-    const peticion = await fetch('http://localhost:3000/usuarios?id='+id, { credentials: 'include', method: 'delete'})
+    const peticion = await fetch('http://localhost:3000/usuarios?id=' + id, { credentials: 'include', method: 'delete' })
     if (peticion.ok) {
       alert('Usuario eliminado')
       obtenerUsuarios();
@@ -25,32 +25,35 @@ function Usuarios({recargar}) {
 
   return (
     <>
-    <br />
-      <table>
-        <caption><h3>Usuarios registrados</h3></caption>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Usuario</th>
-            <th>Opciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            usuarios.map(usuario => (
-              <tr key={usuario.id}>
-                <th>{usuario.id}</th>
-                <th>{usuario.usuario}</th>
-                <th>
-                  <button 
-                  onClick={()=>{eliminarUsuario(usuario.id)}}
-                  >Eliminar</button>
-                </th>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>  
+      <br />
+      <div className="table-container">
+        <table className="user-table">
+          <caption><h2>Usuarios registrados</h2></caption>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Usuario</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              usuarios.map(usuario => (
+                <tr key={usuario.id}>
+                  <th>{usuario.id}</th>
+                  <th>{usuario.usuario}</th>
+                  <th>
+                    <button className='btn-delete'
+                      onClick={() => { eliminarUsuario(usuario.id) }}
+                    >Eliminar</button>
+                  </th>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
     </>
   )
 }

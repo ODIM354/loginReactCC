@@ -1,36 +1,208 @@
+/* Fondo de la página */
+body {
+  background:#ffffff;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  padding: 20px;
+}
+
+/* Para pantallas más pequeñas (menos de 768px de ancho, como dispositivos móviles) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+  }
+
+  .user-table {
+    font-size: 12px; /* Hacer la tabla más pequeña */
+  }
+
+  .btn-delete {
+    padding: 8px 12px; /* Reducir el tamaño del botón */
+  }
+}
+
+/* Para pantallas más grandes (más de 1024px de ancho, como tablets y computadoras de escritorio) */
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px; /* Aumentar el tamaño de la fuente en pantallas grandes */
+  }
+
+  .user-table {
+    font-size: 16px; /* Aumentar el tamaño de la tabla */
+  }
+
+  .btn-delete {
+    padding: 10px 14px; /* Aumentar el tamaño del botón */
+  }
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.login-box {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Estilos de los campos de input */
+input {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estilo del input cuando tiene foco (es decir, cuando el usuario está escribiendo) */
+input:focus {
+  border-color: #007BFF;
+  background-color: #e6f7ff; /* Fondo suave al hacer foco */
+  outline: none;  /* Elimina el borde azul predeterminado del navegador */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);  /* Sombra sutil al enfocar */
+}
+
+/* Estilo del placeholder */
+input::placeholder {
+  color: #aaa;  /* Color más suave para el placeholder */
+  font-style: italic;
+}
+
+/* Estilo del logo */
+.logo {
+  width: 150px; /* Tamaño del logo (valor modificable) */
+  height: auto; /* Mantiene la proporción original del logo */
+  display: block; /* Asegura que la imagen sea un bloque */
+  margin: 0 auto 20px; /* Centra el logo horizontalmente y le da un margen inferior */
+}
+
+/* Si quieres que el logo sea más pequeño o grande en pantallas pequeñas, puedes usar media queries */
+@media (max-width: 768px) {
+  .logo {
+      width: 120px; /* Tamaño más pequeño para dispositivos móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+      width: 100px; /* Tamaño aún más pequeño para pantallas muy pequeñas */
+  }
+}
+
+/* Estilo general para el contenedor de la tabla */
+.table-container {
+  max-width: 100%;
+  overflow-x: auto; /* Asegura que la tabla sea desplazable horizontalmente en pantallas pequeñas */
+  margin: 20px;
+}
+
+/* Estilo para la tabla */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para la tabla */
+  background-color: #fff;
+}
+
+/* Encabezado de la tabla */
+.user-table thead {
+  background-color: #343a40;
+  color: white;
+}
+
+.user-table th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Filas de la tabla */
+.user-table tbody tr {
+  border-bottom: 1px solid #ddd; /* Línea divisoria sutil entre las filas */
+}
+
+/* Estilo para las celdas */
+.user-table td {
+  padding: 12px 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Fila alterna (para mejorar la legibilidad) */
+.user-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Fila de fondo gris claro */
+}
+
+/* Efecto al pasar el ratón sobre una fila */
+.user-table tbody tr:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra cuando se pasa el ratón */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .user-table th,
+  .user-table td {
+    padding: 10px 8px; /* Reducir el padding en pantallas pequeñas */
+  }
+
+  button {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+/* Estilo de los botones de eliminar */
+.btn-delete {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #dc3545;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: #c82333; /* Cambiar color al hacer hover */
+}
+
+.btn-delete:active {
+  background-color: #bd2130; /* Cambiar color al hacer clic */
+  transform: scale(0.95); /* Reducir ligeramente el tamaño al hacer clic */
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
 
 .card {
